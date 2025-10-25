@@ -21,7 +21,7 @@ global.waifu = 'Megawati'
 
 
 //======= BOT SETTINGS ======\\
-global.pairingNumber = "6285247781879"
+global.pairingNumber = "6285138007105"
 global.botName = "Medusa"
 global.session = "session" 
 global.runWith = "Heroku"
