@@ -1,0 +1,45 @@
+import canvafy from "canvafy";
+import { 
+    searching,
+ spotifydl 
+ } from '../../lib/spotify-dl.js'
+  
+let handler = async (m, { conn, usedPrefix, text, command }) => {
+let input = `[!] *wrong input*
+	
+Ex : ${usedPrefix + command} kemarin `
+	if (!text) return m.reply(input)
+	
+m.reply(wait)
+
+const { data, status } = await searching(text)
+
+if (status === false) return m.reply(eror)
+
+const { title, track, artis, durasi, image, download } = await spotifydl(data[0].url);
+
+const fake = {
+key: { fromMe: false, participant: m.sender, ...(m.chat ? { remoteJid: "status@broadcast" } : {}) }, message: { "audioMessage": { "title": await ('SPOTIFY', 5),"h": `Hmm`, 'jpegThumbnail': await conn.resize(image, 100, 100)}}
+}
+    let captionvid = `\n• Title: ${title}\n• Artist: ${artis}\n• Duration: ${durasi}\n\n\n${global.packName}`
+const p = await new canvafy.Spotify()
+            .setTitle(title)
+            .setAuthor("Spotify Downloader")
+            .setTimestamp(40, 100)
+            .setOverlayOpacity(0.8)
+            .setBorder("#fff", 0.8)
+            .setImage(image)
+             .setBlur(3)
+            .build();
+
+ let a = await conn.sendFile(m.chat, p, '', captionvid, fake);
+conn.sendMessage(m.chat, {audio: {url: download}, mimetype: 'audio/mpeg', ptt: false}, {quoted: a})
+   
+  }
+handler.help = ['spotify <judul>']
+handler.tags = ['downloader']
+handler.command = /^(spotify)$/i
+handler.limit = true
+handler.register = true
+
+export default handler
