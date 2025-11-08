@@ -5,7 +5,7 @@ let handler = async (m, { conn, text, usedPrefix, args, command }) => {
     
     m.reply(wait);
 
-const res = await axios.get(`https://api.nasirxml.my.id/api/dl/igstory?url=${encodeURIComponent(text)}&apikey=nasirxml00890`);
+const res = await axios.get(`https://api.nasirxml.biz.id/api/dl/igstory?url=${encodeURIComponent(text)}&apikey=nasirxml00890`);
 const anu = res.data;
 
 conn.sendFile(m.chat, anu.data[0].url, '', 'Ini Dia Kak', m);
