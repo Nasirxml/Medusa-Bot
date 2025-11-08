@@ -1,4 +1,3 @@
-
 import moment from "moment-timezone";
 import chalk from "chalk";
 import fs from 'fs-extra'
@@ -70,7 +69,7 @@ members.filter(item => item.id !== idToRemove);
 
 
 
-if(anu.participants[0].includes('@lid')) return log('log 1')
+if(anu.participants[0].id.includes('@lid')) return log('log 1')
 if ((action == "remove" || action == "promote" || action == "demote") &&
 anu.participants[0].split("@")[0].includes(conn.user.id.split(":")[0])
 )
